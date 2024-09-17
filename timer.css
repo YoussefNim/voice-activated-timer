@@ -1,37 +1,34 @@
-/* Reset some default styles */
+/* Reset default styles */
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4; /* Light background color */
-  }
-  
-  /* Container for centering and styling */
-  .container {
-    text-align: center;
-  }
-  
-  /* Header styling */
-  h1 {
-    font-size: 4em; /* Large font size */
-    margin-bottom: 20px; /* Space below the header */
-    color: #333; /* Dark color for contrast */
-  }
-  
-  /* Timer display styling */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+#timer-display {
+  font-size: 5rem; /* Larger font size for visibility */
+  font-weight: bold;
+  color: #333;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+@media (max-width: 600px) {
   #timer-display {
-    font-size: 6em; /* Larger font size for the timer */
-    font-weight: bold;
-    color: #e74c3c; /* Red color for visibility */
-    padding: 20px; /* Padding around the timer */
-    border: 2px solid #333; /* Border to make it stand out */
-    border-radius: 10px; /* Rounded corners for the border */
-    background-color: #fff; /* White background for the timer display */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better visibility */
+    font-size: 3rem; /* Slightly smaller font size on mobile */
   }
-  
+}
+

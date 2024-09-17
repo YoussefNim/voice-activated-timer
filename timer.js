@@ -1,5 +1,6 @@
 // Timer display element
 const timerDisplay = document.getElementById('timer-display');
+const enableAudioButton = document.getElementById('enable-audio');
 
 // Speech Recognition API setup
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -15,20 +16,49 @@ if (!SpeechRecognition) {
   // Countdown variables
   let countdownInterval;
   let totalTime = 0;
+  let audioEnabled = false; // To track if audio is enabled
+
+  // Load alert sound
+  let alertSound;
+  function loadAlertSound() {
+    alertSound = new Audio('last 4 seconds race-start-beeps.mp3');
+    alertSound.preload = 'auto'; // Preload audio file to ensure it's ready
+  }
+
+  // Function to play alert sound
+  function playAlertSound() {
+    if (audioEnabled && alertSound) { // Only play sound if audio is enabled
+      alertSound.play().catch(error => {
+        console.error('Error playing alert sound:', error);
+      });
+    }
+  }
 
   // Function to start the countdown
   function startCountdown(seconds) {
     clearInterval(countdownInterval); // Clear any previous countdowns
     totalTime = seconds;
     updateTimerDisplay(totalTime);
+    alertSoundPlayed = false; // Reset alert sound status
 
     countdownInterval = setInterval(() => {
       totalTime--;
       updateTimerDisplay(totalTime);
 
+      if (totalTime === 4 && !alertSoundPlayed && audioEnabled) {
+        playAlertSound(); // Play alert sound when 4 seconds are remaining
+        alertSoundPlayed = true; // Ensure sound is played only once
+      }
+
       if (totalTime <= 0) {
         clearInterval(countdownInterval);
         timerDisplay.textContent = 'Time\'s up!';
+        if (!alertSoundPlayed && audioEnabled) {
+          playAlertSound(); // Play alert sound at 0 if not already played
+        }
+        setTimeout(() => {
+          timerDisplay.textContent = 'Listening...'; // Reset display after a short delay
+        }, 2000); // Change the delay as needed
       }
     }, 1000);
   }
@@ -86,6 +116,16 @@ if (!SpeechRecognition) {
     console.log('Speech recognition ended, restarting...');
     recognition.start(); // Restart listening automatically
   };
+
+  // Function to enable audio
+  enableAudioButton.onclick = function () {
+    audioEnabled = true;
+    enableAudioButton.style.display = 'none'; // Hide the button after enabling audio
+    timerDisplay.textContent = 'Listening... (Audio enabled)';
+  };
+
+  // Load the alert sound when the page loads
+  loadAlertSound();
 
   // Start listening as soon as the page loads
   recognition.start();
