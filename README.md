@@ -3,6 +3,8 @@
 ## Overview
 A simple, voice-activated timer that you can use directly in your browser.
 It is designed to help you easily set and manage rest periods while working out (or for any other activity where a countdown is needed).
+An alert sound plays during the last 4 seconds of the countdown to ensure you are notified before time expires.
+
 
 ## Features
 
