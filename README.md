@@ -15,12 +15,14 @@ An alert sound plays during the last 4 seconds of the countdown to ensure you ar
 - **Automatic Listening:** The timer listens continuously for your commands, so you don’t need to interact with the page manually.
 
 - **Real-Time Display:** The remaining time is displayed in an easy-to-read format, even from a distance.
+- **Alert Sound:** An alert sound plays during the last 4 seconds of the countdown to notify you before time expires. Ensure to click the "Enable Audio" button to authorize sound playback.
 
 ## How It Works
 
 1. **Open the Timer:** Load the timer page in your browser.
 2. **Speak Your Command:** Use voice commands to set the timer for your desired duration.
 3. **Countdown Display:** The timer will start counting down and display the remaining time.
+4. **Alert sound:**  The alert sound will play during the last 4 seconds of the countdown.
 
 ## Value
 
