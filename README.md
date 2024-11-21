@@ -36,3 +36,12 @@ This timer is especially useful for:
 1. **Open the Project:** Load the `timer.html` file in your web browser.
 2. **Grant Microphone Permissions:** Allow the browser to access your microphone if prompted.
 3. **Start Using the Timer:** Speak your commands to set and control the countdown.
+
+<div align="center">
+  <img src="voice-activated-timer-page.png" alt="listening" />
+</div>
+
+<div align="center">
+  <img src="voice-activated-timer-page-27secs.png" alt="countdown" />
+</div>
+
